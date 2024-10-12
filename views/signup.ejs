@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/styles/signupstyle.css">
+  <style>
+    
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="txtcld">
+      <p>Who is signing up there?</p>
+    </div>
+
+    <div class="dog1">
+      <img src="/images/dog3-removebg-preview.png" alt="">
+    </div>
+
+    <form class="main" action="/login" method="post" onsubmit="return validateForm()">
+      <h1>Signup</h1>
+      <div class="name">
+        <label for="username">Username</label>
+        <input type="text" name="username" id="username" required>
+        <div class="error-message" id="username-error"></div>
+      </div>
+      <br>
+      <div class="email">
+        <label for="Email-id">Email-id</label>
+        <input type="email" name="email" id="Email-id" required>
+        <div class="error-message" id="email-error"></div>
+      </div>
+      <br>
+      <div class="password">
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password" required>
+        <div class="error-message" id="password-error"></div>
+      </div>
+      <br>
+      <div class="signupbtn">
+        <button>Signup</button>
+      </div>
+
+      <p class="haveacc"><a href="/login" class="text">Already have an account? Login.</a></p>
+    </form>
+
+    <div class="dog2">
+      <img src="/images/dog2-removebg-preview.png" alt="">
+    </div>
+  </div>
+
+  <script>
+    function validateForm() {
+      const username = document.getElementById("username").value;
+      const email = document.getElementById("Email-id").value;
+      const password = document.getElementById("password").value;
+
+      const usernameError = document.getElementById("username-error");
+      const emailError = document.getElementById("email-error");
+      const passwordError = document.getElementById("password-error");
+
+      // Reset error messages
+      usernameError.textContent = "";
+      emailError.textContent = "";
+      passwordError.textContent = "";
+
+      let isValid = true;
+
+      if (username.trim() === "") {
+        usernameError.textContent = "Username is required.";
+        isValid = false;
+      } else if (username.length < 5) {
+        usernameError.textContent = "Username must be at least 5 characters.";
+        isValid = false;
+      }
+
+      if (email.trim() === "") {
+        emailError.textContent = "Email is required.";
+        isValid = false;
+      } else if (!validateEmail(email)) {
+        emailError.textContent = "Invalid email address.";
+        isValid = false;
+      }
+
+      if (password.trim() === "") {
+        passwordError.textContent = "Password is required.";
+        isValid = false;
+      } else if (password.length < 8) {
+        passwordError.textContent = "Password must be at least 8 characters.";
+        isValid = false;
+      }
+
+      return isValid;
+    }
+
+    function validateEmail(email) {
+      const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+      return emailPattern.test(email);
+    }
+  </script>
+</body>
+</html>

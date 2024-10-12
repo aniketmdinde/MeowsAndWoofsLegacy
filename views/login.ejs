@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/styles/loginstyle.css">
+</head>
+<body>
+  <img class="heroes" src="./images/dogandcats1.png" alt="">
+  <form class="login" action="/shop" method="post" onsubmit="return validateForm()">
+    <div class="title">
+      <h1>Login page</h1>
+    </div>
+
+    <div class="username">
+      <label for="username">Username</label>
+      <input type="text" name="username" id="username" required>
+      <div class="error-message" id="username-error"></div>
+    </div>
+
+    <div class="password">
+      <label for="password">Password</label>
+      <input type="password" name="password" id="password" required>
+      <div class="error-message" id="password-error"></div>
+    </div>
+
+    <button class="button" type="submit">Login</button>
+  </form>
+
+  <script>
+    function validateForm() {
+      const username = document.getElementById("username").value;
+      const password = document.getElementById("password").value;
+      const usernameError = document.getElementById("username-error");
+      const passwordError = document.getElementById("password-error");
+      
+      usernameError.textContent = "";
+      passwordError.textContent = "";
+
+      let isValid = true;
+
+      if (username.trim() === "") {
+        usernameError.textContent = "Username is required.";
+        isValid = false;
+      } else if (username.length < 5) {
+        usernameError.textContent = "Username must be at least 5 characters.";
+        isValid = false;
+      }
+
+      if (password.trim() === "") {
+        passwordError.textContent = "Password is required.";
+        isValid = false;
+      } else if (password.length < 8) {
+        passwordError.textContent = "Password must be at least 8 characters.";
+        isValid = false;
+      }
+
+      return isValid;
+    }
+  </script>
+</body>
+</html>

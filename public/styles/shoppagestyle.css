@@ -1,0 +1,159 @@
+/* CSS for the updated navigation bar with font and color changes */
+nav {
+    background-color: #ff863f;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-family: 'Arial', sans-serif; /* Change to your preferred font */
+}
+
+.title {
+    font-size: 24px;
+    font-family: 'Arial', sans-serif; /* Change to your preferred font */
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+}
+
+.nav-link {
+    margin: 0 15px;
+    cursor: pointer;
+    color: #333; /* Change to your preferred color */
+    font-family: 'Arial', sans-serif; /* Change to your preferred font */
+}
+
+.nav-link:hover {
+    text-decoration: underline;
+}
+
+.nav-user-part {
+    display: flex;
+    align-items: center;
+}
+
+.user {
+    font-weight: bold;
+    margin-right: 10px;
+    font-family: 'Arial', sans-serif; /* Change to your preferred font */
+}
+
+.logout-btn {
+    background-color: #d9534f;
+    color: white;
+    border: none;
+    padding: 5px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Arial', sans-serif; /* Change to your preferred font */
+}
+
+.logout-btn:hover {
+    background-color: #c9302c;
+}
+
+/* CSS for the search form */
+.search-form {
+    background-color: white; /* Change the background color to white */
+    display: flex; /* Display the form items in a single line */
+    align-items: center; /* Center items vertically */
+    padding: 10px;
+    margin: 20px 0; /* Add margin to separate it from the navigation */
+    border: 1px solid #ccc; /* Gray border */
+    border-radius: 5px;
+}
+
+.form-group {
+    margin: 0 10px;
+    display: flex; /* Display the label and select in a single line */
+    align-items: center; /* Center items vertically */
+}
+
+label {
+    color: #333; /* Dark gray text color */
+    font-size: 16px;
+}
+
+.select {
+    width: 150px; /* Adjust the width as needed */
+    padding: 5px;
+    border: 2px solid #007BFF; /* Blue border */
+    border-radius: 5px;
+    font-size: 14px;
+    color: #007BFF; /* Blue text color */
+    background-color: white; /* Change the background color to white */
+}
+
+.search-btn {
+    background-color: #007BFF; /* Blue background */
+    color: white;
+    border: 2px solid #007BFF; /* Blue border */
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* CSS for the product list */
+.product-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 20px 0;
+}
+
+/* CSS for individual product cards */
+.product-card {
+    width: 250px;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin: 10px;
+    padding: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.product-card img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.product-card h3 {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+.product-card .shop-now-btn {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.footer {
+    display: none;
+    background-color: #ff863f;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    font-family: 'Arial', sans-serif;
+}
+
+/* CSS for showing/hiding the footer content */
+.show-content {
+    display: block;
+}

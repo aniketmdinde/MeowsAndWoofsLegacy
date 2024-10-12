@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/PAYMENTSTYLE.css">
+    <title>Payment Page</title>
+</head>
+<body>
+    <div class="payment-container">
+        <h1>Payment Details</h1>
+        <form action="/payment" method="post" onsubmit="return validatePaymentForm()">
+            <div class="form-group">
+                <label for="name-on-card">Name on Card:</label>
+                <input type="text" id="name-on-card" name="name-on-card" placeholder="John Doe" required maxlength="50">
+                <div class="error-message" id="name-error"></div>
+            </div>
+            <div class="form-group">
+                <label for="card-number">Card Number:</label>
+                <input type="text" id="card-number" name="card-number" placeholder="1234 5678 9012 3456" required maxlength="19">
+                <div class="error-message" id="card-number-error"></div>
+            </div>
+            <div class="form-group">
+                <label for="expiration-date">Expiration Date:</label>
+                <input type="text" id="expiration-date" name="expiration-date" placeholder="MM/YY" required maxlength="5">
+                <div class="error-message" id="expiration-date-error"></div>
+            </div>
+            <div class="form-group">
+                <label for="cvv">CVV:</label>
+                <input type="text" id="cvv" name="cvv" placeholder="123" required maxlength="3">
+                <div class="error-message" id="cvv-error"></div>
+            </div>
+            <button class="pay-button">Pay Now</button>
+        </form>
+    </div>
+    <script>
+        function validatePaymentForm() {
+        const nameOnCard = document.getElementById("name-on-card").value;
+        const cardNumber = document.getElementById("card-number").value;
+        const expirationDate = document.getElementById("expiration-date").value;
+        const cvv = document.getElementById("cvv").value;
+
+        const nameError = document.getElementById("name-error");
+        const cardNumberError = document.getElementById("card-number-error");
+        const expirationDateError = document.getElementById("expiration-date-error");
+        const cvvError = document.getElementById("cvv-error");
+
+        nameError.textContent = "";
+        cardNumberError.textContent = "";
+        expirationDateError.textContent = "";
+        cvvError.textContent = "";
+
+        let isValid = true;
+
+        // Validate Name on Card
+        if (nameOnCard.trim() === "") {
+            nameError.innerHTML = "Name on Card is required.";
+            isValid = false;
+        }
+
+        // Validate Card Number
+        const cardNumberPattern = /^\d{4} \d{4} \d{4} \d{4}$/;
+        if (!cardNumber.match(cardNumberPattern)) {
+            cardNumberError.innerHTML = "Invalid Card Number.<br>Use the format: 1234 5678 9012 3456";
+            isValid = false;
+        }
+
+        // Validate Expiration Date
+        const expirationDatePattern = /^(0[1-9]|1[0-2])\/\d{2}$/;
+        if (!expirationDate.match(expirationDatePattern)) {
+            expirationDateError.innerHTML = "Invalid Expiration Date.<br>Use the format: MM/YY";
+
+            isValid = false;
+        }
+
+        // Validate CVV
+        const cvvPattern = /^\d{3}$/;
+        if (!cvv.match(cvvPattern)) {
+            cvvError.innerHTML = `Invalid CVV.<br>It should be a 3-digit number.`;
+            isValid = false;
+        }
+
+        return isValid;
+        }
+
+        // Autofill '/' for Expiration Date
+        document.getElementById("expiration-date").addEventListener("input", function () {
+        const value = this.value.replace(/\D/g, '');
+        if (value.length > 2) {
+            this.value = value.slice(0, 2) + '/' + value.slice(2);
+        } else {
+            this.value = value;
+        }
+        });
+
+    </script>
+</body>
+</html>

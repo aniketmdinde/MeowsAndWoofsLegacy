@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/styles/shoppingstyle.css">
+</head>
+<body>
+    <nav>
+        <h1 class="title">Meows & Woofs</h1>
+        <div class="nav-links">
+            <div class="nav-link">Home</div>
+            <div class="nav-link">About us</div>
+            <div class="nav-link">Contact</div>
+            <% if(username) { %>
+            <div class="nav-user-part">
+              <div class="user"><%= username %></div>
+              <form action="/logout" method="post">
+                <button class="logout-btn">Logout</button>
+              </form>
+            </div>
+            <% } %>
+        </div>
+      </nav>
+
+    <div class="product-description">
+        <div class="image">
+            <img src=<%= product.image %>>
+        </div>
+        <div class="description">
+            <h2><%= product.name %></h2>
+            <h2><%= product.price %></h2>
+        </div> 
+    </div>
+    <form action="/payment/<%= product._id %>">
+        <button>Buy</button>
+    </form>
+    
+</body>
+</html>

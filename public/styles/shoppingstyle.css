@@ -1,0 +1,138 @@
+nav {
+    background-color: #ff863f;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-family: 'Arial', sans-serif; /* Change to your preferred font */
+}
+
+.title {
+    font-size: 24px;
+    font-family: 'Arial', sans-serif; /* Change to your preferred font */
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+}
+
+.nav-link {
+    margin: 0 15px;
+    cursor: pointer;
+    color: #333; /* Change to your preferred color */
+    font-family: 'Arial', sans-serif; /* Change to your preferred font */
+}
+
+.nav-link:hover {
+    text-decoration: underline;
+}
+
+.nav-user-part {
+    display: flex;
+    align-items: center;
+}
+
+.user {
+    font-weight: bold;
+    margin-right: 10px;
+    font-family: 'Arial', sans-serif; /* Change to your preferred font */
+}
+
+.logout-btn {
+    background-color: #d9534f;
+    color: white;
+    border: none;
+    padding: 5px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Arial', sans-serif; /* Change to your preferred font */
+}
+
+.logout-btn:hover {
+    background-color: #c9302c;
+}
+
+/* Product Description Container */
+/* Product Description Container */
+.product-description {
+    display: flex;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    padding: 15px;
+    margin: 10px;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s;
+}
+
+.product-description:hover {
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+.product-description .image {
+    flex: 1;
+    max-width: 200px;
+    margin-right: 20px;
+}
+
+.product-description .image img {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+}
+
+.product-description .description {
+    flex: 2;
+}
+
+.product-description h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.product-description h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+/* Buy Button */
+.product-description form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 10px;
+}
+
+.product-description button {
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-align: center; /* Center text */
+}
+
+.product-description button:hover {
+    background-color: #0056b3;
+}
+
+form{
+    display: flex;
+}
+ form button{
+    margin: 0 auto;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-size: 16px;
+    cursor: pointer;
+ }

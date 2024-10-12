@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <link rel="stylesheet" href="/styles/shoppagestyle.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body>
+  <nav>
+    <h1 class="title">Meows & Woofs</h1>
+    <div class="nav-links">
+        <div class="nav-link" id="home-link">Home</div>
+        <div class="nav-link" id="about-link">About Us</div>
+        <div class="nav-link" id="contact-link">Contact</div>
+        <% if(username) { %>
+        <div class="nav-user-part">
+          <div class="user"><%= username %></div>
+          <form action="/logout" method="post">
+            <button class="logout-btn">Logout</button>
+          </form>
+        </div>
+        <% } %>
+    </div>
+  </nav>
+
+  <form action="/shop" method="get" class="search-form">
+    <div class="form-group">
+      <label for="animalcatg">Animal:</label>
+      <select name="AnimalCategory" id="animalcatg" class="select">
+        <option value="" <% ac === "" ? "selected" : "" %> >-</option>
+        <% for(A of AnimalC){ %>
+        <option value="<%= A%>" <% A === ac ? "selected" : "" %> ><%= A%></option>
+        <% } %>
+      </select>
+    </div>
+    
+    <div class="form-group">
+      <label for="productcatg">Product:</label>
+      <select name="ProductCategory" id="productcatg" class="select">
+        <option value=""<% ac === "none" ? "selected" : "" %>>-</option>
+        <% for(P of ProductC){ %>
+        <option value="<%= P%>"<% A === ac ? "selected" : "" %>><%= P%></option>
+        <% } %>
+      </select>
+    </div>
+
+    <button class="search-btn">Search</button>
+  </form>
+
+  <div class="product-list">
+    <% for(product of products){ %>
+    <div class="product-card">
+        <img src= <%= product.image %>>
+        <h3><%= product.name %></h3>
+        <h3>&#8377; <%= product.price %></h3>
+        <a href="shop/<%= product._id %>"><button class="shop-now-btn">Shop now</button></a>
+    </div>
+    <% } %>
+  </div>
+
+  <div class="footer" id="about-content">
+    <h2>About Us</h2>
+    <p>
+      Meows & Woofs is more than just a pet product shopping website. We're a dedicated team of pet lovers who believe in providing the best for our furry and feathered friends.
+    </p>
+    <p>
+      Our mission is to make pet parenting a joyful and fulfilling experience. We strive to offer a wide range of high-quality pet products, from nutritious food and fun toys to stylish accessories and more.
+    </p>
+    <p>
+      What sets us apart is our commitment to quality, our diverse selection of products, and our exceptional customer service. We're here to ensure that your pets receive the very best care.
+    </p>
+    <p>
+      Join the Meows & Woofs family today, and let us help you provide your pets with the love and care they deserve.
+    </p>
+  </div>
+
+  <div class="footer" id="contact-content">
+    <h2>Contact</h2>
+    <p>Email: meowsandwoof@gmail.com</p>
+    <p>Customer Support: +91 1234567890</p>
+  </div>
+
+  <script>
+    // Get references to the navigation links and footer content
+    const homeLink = document.getElementById("home-link");
+    const aboutLink = document.getElementById("about-link");
+    const contactLink = document.getElementById("contact-link");
+    const aboutContent = document.getElementById("about-content");
+    const contactContent = document.getElementById("contact-content");
+  
+    // Add click event listeners to the links
+    aboutLink.addEventListener("click", () => {
+      aboutContent.classList.add("show-content");
+      contactContent.classList.remove("show-content");
+    });
+  
+    contactLink.addEventListener("click", () => {
+      aboutContent.classList.remove("show-content");
+      contactContent.classList.add("show-content");
+    });
+  
+    homeLink.addEventListener("click", () => {
+      aboutContent.classList.remove("show-content");
+      contactContent.classList.remove("show-content");
+    });
+  </script>
+  
+</body>
+</html>

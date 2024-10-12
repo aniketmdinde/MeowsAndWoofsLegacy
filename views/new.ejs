@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Product</title>
+    
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/styles/new.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center mb-4">Add a New Product</h1>
+        
+        <form action="/shop/new/admin" method="post">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" name="name" id="name">
+            </div>
+            <div class="form-group">
+                <label for="price">Price</label>
+                <input type="number" class="form-control" name="price" id="price">
+            </div>
+            <div class="form-group">
+                <label for="AnimalCategory">Animal Category</label>
+                <select class="form-control" name="AnimalCategory" id="AnimalCategory">
+                    <option value="dog">Dog</option>
+                    <option value="cat">Cat</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="ProductCategory">Product Category</label>
+                <select class="form-control" name="ProductCategory" id="ProductCategory">
+                    <option value="food">Food</option>
+                    <option value="leash">Leash</option>
+                    <option value="toys">Toys</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="image">Image URL</label>
+                <input type="text" class="form-control" name="image" id="image">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</body>
+</html>
